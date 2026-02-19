@@ -79,7 +79,7 @@ For mRS results that were presented as percentages, we obtained mRS counts by as
 
 ---
 
-## Table S1. Trial Characteristics
+## Trial Characteristics
 
 ```{r}
 #| label: tbl-s1
@@ -119,7 +119,7 @@ trial_meta |>
 
 ---
 
-## Table S2. Risk of Bias Assessment
+## Risk of Bias Assessment
 
 ```{r}
 #| label: tbl-s2
@@ -189,7 +189,7 @@ rob_gt |>
 
 ---
 
-## Table S3. Detailed References
+## Detailed References
 
 All 30 included trials, listed by trial acronym.
 

@@ -370,8 +370,8 @@ supplement: "Figure",
 #horizontalrule
 
 #pagebreak(weak: true)
-= Table S1. Trial Characteristics
-<table-s1.-trial-characteristics>
+= Trial Characteristics
+<trial-characteristics>
 #figure([
 #{set text(font: ("system-ui", "Segoe UI", "Roboto", "Helvetica", "Arial", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji") , size: 6.75pt); table(
   columns: 10,
@@ -422,8 +422,8 @@ supplement: "Table",
 #horizontalrule
 
 #pagebreak(weak: true)
-= Table S2. Risk of Bias Assessment
-<table-s2.-risk-of-bias-assessment>
+= Risk of Bias Assessment
+<risk-of-bias-assessment>
 #figure([
 #{set text(font: ("system-ui", "Segoe UI", "Roboto", "Helvetica", "Arial", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji") , size: 6.75pt); table(
   columns: 8,
@@ -476,8 +476,8 @@ supplement: "Table",
 #horizontalrule
 
 #pagebreak(weak: true)
-= Table S3. Detailed References
-<table-s3.-detailed-references>
+= Detailed References
+<detailed-references>
 All 30 included trials, listed by trial acronym.
 
 + #strong[SYNTHESIS] --- Ciccone A, Valvassori L, Nichelatti M, Sgoifo A, Ponzio M, Sterzi R, et al.~Endovascular Treatment for Acute Ischemic Stroke. #emph[N Engl J Med] 2013; 368:904--13.
