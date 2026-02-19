@@ -57,21 +57,17 @@ with open(path, 'r') as f:
     lines = f.readlines()
 
 out = []
-first_heading = True
 for line in lines:
     # Top-level Typst heading: line starts with "= " (one equals, space)
     # but not "== " (level 2) or "=== " (level 3)
     if re.match(r'^= [^=]', line):
-        if first_heading:
-            first_heading = False   # no break before first section
-        else:
-            out.append('#pagebreak(weak: true)\n')
+        out.append('#pagebreak(weak: true)\n')
     out.append(line)
 
 with open(path, 'w') as f:
     f.writelines(out)
 
-print(f"  Inserted page breaks before {sum(1 for l in lines if re.match(r'^= [^=]', l)) - 1} sections.")
+print(f"  Inserted page breaks before {sum(1 for l in lines if re.match(r'^= [^=]', l))} sections.")
 PYEOF
 
 echo "Step 3: typst compile with --root . (allows ../Figures/ access)..."

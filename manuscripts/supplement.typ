@@ -308,6 +308,7 @@
   doc,
 )
 
+#pagebreak(weak: true)
 = Search Strategy
 <search-strategy>
 We searched PubMed (MEDLINE via NCBI) from inception to October 19, 2025, with no date limits. The full, reproducible PubMed strategy was:
