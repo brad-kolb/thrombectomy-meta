@@ -40,7 +40,10 @@ if [ ! -f "$TYPST" ]; then
   exit 1
 fi
 
-echo "Step 1: Quarto → .typ (knitr + pandoc)..."
+echo "Step 1a: Quarto → HTML..."
+quarto render "$QMD" --to html 2>&1 | grep -v "^$" || true
+
+echo "Step 1b: Quarto → .typ (knitr + pandoc)..."
 quarto render "$QMD" --to typst 2>&1 | grep -v "^$" | grep -v "hint:" || true
 
 if [ ! -f "$TYP" ]; then
