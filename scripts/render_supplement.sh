@@ -10,6 +10,11 @@
 #   compilation step fails. We then invoke typst directly with --root set to
 #   the repo root, allowing ../Figures/ paths to resolve.
 #
+# WHY POST-PROCESS THE .typ:
+#   Typst does not allow #pagebreak() inside show rules (layout not yet resolved).
+#   We insert #pagebreak(weak: true) directly before each top-level (= ) heading
+#   in the generated .typ file, skipping the very first section.
+#
 # USAGE:
 #   bash scripts/render_supplement.sh
 
@@ -22,7 +27,7 @@ QMD="manuscripts/supplement.qmd"
 TYP="manuscripts/supplement.typ"
 PDF="manuscripts/supplement.pdf"
 
-# Find Quarto's bundled typst binary (works for both Intel and ARM Macs)
+# Find Quarto's bundled typst binary
 ARCH=$(uname -m)
 if [ "$ARCH" = "arm64" ]; then
   TYPST="/Applications/quarto/bin/tools/aarch64/typst"
@@ -32,12 +37,10 @@ fi
 
 if [ ! -f "$TYPST" ]; then
   echo "ERROR: typst binary not found at $TYPST"
-  echo "Ensure Quarto is installed at /Applications/quarto"
   exit 1
 fi
 
 echo "Step 1: Quarto → .typ (knitr + pandoc)..."
-# quarto render generates the .typ but fails at typst compilation; that's expected.
 quarto render "$QMD" --to typst 2>&1 | grep -v "^$" | grep -v "hint:" || true
 
 if [ ! -f "$TYP" ]; then
@@ -45,7 +48,33 @@ if [ ! -f "$TYP" ]; then
   exit 1
 fi
 
-echo "Step 2: typst compile with --root . (allows ../Figures/ access)..."
+echo "Step 2: Post-process .typ — insert page breaks before top-level sections..."
+python3 - "$TYP" <<'PYEOF'
+import sys, re
+
+path = sys.argv[1]
+with open(path, 'r') as f:
+    lines = f.readlines()
+
+out = []
+first_heading = True
+for line in lines:
+    # Top-level Typst heading: line starts with "= " (one equals, space)
+    # but not "== " (level 2) or "=== " (level 3)
+    if re.match(r'^= [^=]', line):
+        if first_heading:
+            first_heading = False   # no break before first section
+        else:
+            out.append('#pagebreak(weak: true)\n')
+    out.append(line)
+
+with open(path, 'w') as f:
+    f.writelines(out)
+
+print(f"  Inserted page breaks before {sum(1 for l in lines if re.match(r'^= [^=]', l)) - 1} sections.")
+PYEOF
+
+echo "Step 3: typst compile with --root . (allows ../Figures/ access)..."
 "$TYPST" compile "$TYP" "$PDF" --root .
 
 echo ""

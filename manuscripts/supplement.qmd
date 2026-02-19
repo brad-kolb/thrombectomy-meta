@@ -20,6 +20,7 @@ format:
     margin:
       x: 1in
       y: 1in
+    include-in-header: typst-custom.typ
 execute:
   echo: false
   warning: false

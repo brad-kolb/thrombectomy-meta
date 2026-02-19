@@ -278,6 +278,8 @@
   inset: 6pt,
   stroke: none
 )
+// Allow figures (and tables wrapped in figure) to paginate across pages
+#show figure: set block(breakable: true)
 
 #set page(
   paper: "us-letter",
@@ -344,6 +346,7 @@ For each included trial we extracted trial design, population, time window, imag
 
 For mRS results that were presented as percentages, we obtained mRS counts by assuming the reported percentage of patients achieving the given mRS score was obtained by dividing the number of patients achieving that score in the intention-to-treat population by the total number of patients in the intention-to-treat population across all 6 mRS categories.
 
+#pagebreak(weak: true)
 = PRISMA Diagram
 <prisma-diagram>
 #figure([
@@ -359,6 +362,7 @@ supplement: "Figure",
 
 #horizontalrule
 
+#pagebreak(weak: true)
 = Table S1. Trial Characteristics
 <table-s1.-trial-characteristics>
 #figure([
@@ -411,6 +415,7 @@ supplement: "Table",
 
 #horizontalrule
 
+#pagebreak(weak: true)
 = Table S2. Risk of Bias Assessment
 <table-s2.-risk-of-bias-assessment>
 #figure([
@@ -465,6 +470,7 @@ supplement: "Table",
 
 #horizontalrule
 
+#pagebreak(weak: true)
 = Table S3. Detailed References
 <table-s3.-detailed-references>
 All 30 included trials, listed by trial acronym.
@@ -531,6 +537,7 @@ All 30 included trials, listed by trial acronym.
 
 #horizontalrule
 
+#pagebreak(weak: true)
 = Statistical Details
 <statistical-details>
 == Main Model Specification
@@ -725,6 +732,7 @@ All three alternative models yield a consistently negative intercept--slope corr
 
 #horizontalrule
 
+#pagebreak(weak: true)
 = Figure S1. Robustness of $rho$ to Model Specification
 <figure-s1.-robustness-of-rho-to-model-specification>
 Posterior medians and 95% credible intervals for $rho$ under the primary proportional-odds ordinal model and three alternative prespecified models: an unequal-variance proportional-odds model, an adjacent-category ordinal model, and a binary model (mRS 0--2 vs 3--6). Estimates remain negative across all specifications.
@@ -742,6 +750,7 @@ supplement: "Figure",
 
 #horizontalrule
 
+#pagebreak(weak: true)
 = Figure S2. Absolute Benefit Across Model Specifications
 <figure-s2.-absolute-benefit-across-model-specifications>
 For each model, points show each trial's posterior median control-group probability of functional independence (x-axis) and posterior median absolute benefit in functional independence due to thrombectomy (y-axis). Functional independence is defined as mRS 0--2. The dashed line indicates no absolute benefit; the smooth curve is a descriptive fit with 95% uncertainty band.
