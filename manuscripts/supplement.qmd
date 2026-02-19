@@ -83,7 +83,6 @@ For mRS results that were presented as percentages, we obtained mRS counts by as
 
 ```{r}
 #| label: tbl-s1
-#| tbl-cap: "Characteristics of the 30 included randomized controlled trials."
 
 library(dplyr)
 library(gt)
@@ -96,9 +95,6 @@ trial_meta |>
   select(trial_display, year, n_evt, n_control, occlusion, time_window, population,
          primary_endpoint, key_feature, notes) |>
   gt() |>
-  tab_header(
-    title = "Table S1. Trial Characteristics"
-  ) |>
   cols_label(
     trial_display    = "Trial",
     year             = "Year",
@@ -116,7 +112,7 @@ trial_meta |>
     locations = cells_column_labels()
   ) |>
   tab_options(
-    table.font.size = px(12),
+    table.font.size = px(9),
     column_labels.background.color = "#f0f0f0"
   )
 ```
@@ -127,7 +123,6 @@ trial_meta |>
 
 ```{r}
 #| label: tbl-s2
-#| tbl-cap: "Cochrane risk of bias assessment for the 30 included trials."
 
 library(dplyr)
 library(gt)
@@ -160,13 +155,12 @@ rob_display <- rob |>
 
 rob_gt <- rob_display |>
   gt() |>
-  tab_header(title = "Table S2. Risk of Bias Assessment") |>
   tab_style(
     style = cell_text(weight = "bold"),
     locations = cells_column_labels()
   ) |>
   tab_options(
-    table.font.size = px(11),
+    table.font.size = px(9),
     column_labels.background.color = "#f0f0f0"
   )
 
@@ -188,9 +182,8 @@ for (col in domain_cols) {
 }
 
 rob_gt |>
-  tab_footnote(
-    footnote = "Green = Low risk; Red = High risk; Yellow = Unclear risk.",
-    locations = cells_title()
+  tab_source_note(
+    source_note = "Green = Low risk; Red = High risk; Yellow = Unclear risk."
   )
 ```
 
