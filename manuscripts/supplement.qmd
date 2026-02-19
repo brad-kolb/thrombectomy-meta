@@ -14,10 +14,20 @@ format:
   docx:
     toc: true
     number-sections: false
+  typst:
+    toc: true
+    number-sections: false
+    margin:
+      x: 1in
+      y: 1in
 execute:
   echo: false
   warning: false
   message: false
+knitr:
+  opts_chunk:
+    dev: png
+    dpi: 300
 ---
 
 ## Search Strategy, Eligibility Criteria, Study Selection, and Data Handling
