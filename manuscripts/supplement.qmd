@@ -1,6 +1,6 @@
 ---
-title: "Supplementary Material: Floor and Ceiling Effects in Thrombectomy"
-subtitle: "A Bayesian Hierarchical Ordinal Meta-analysis of 30 Randomized Trials"
+title: "Supplementary Material: Worse Prognosis, Larger Benefit"
+subtitle: "A Bayesian Hierarchical Ordinal Meta-analysis of 30 Thrombectomy Trials"
 author:
   - name: Bradley Kolb, MD
     affiliation: Department of Neurosurgery, Rush University Medical Center
@@ -14,13 +14,15 @@ format:
   docx:
     toc: true
     number-sections: false
-  typst:
+  pdf:
     toc: true
     number-sections: false
-    margin:
-      x: 1in
-      y: 1in
-    include-in-header: typst-custom.typ
+    geometry: margin=1in
+    keep-tex: false
+    include-in-header:
+      text: |
+        \usepackage{pdflscape}
+        \usepackage[table]{xcolor}
 execute:
   echo: false
   warning: false
@@ -29,7 +31,28 @@ knitr:
   opts_chunk:
     dev: png
     dpi: 300
+bibliography: ../Bibliography_base.bib
+csl: vancouver.csl
+nocite: |
+  @Ciccone2013_synthesis, @Broderick2013_ims3, @Kidwell2013_mrrescue,
+  @Berkhemer2015_mrclean, @Campbell2015_extendia, @Goyal2015_escape,
+  @Saver2015_swiftprime, @Jovin2015_revascat,
+  @Bendszus2016_thrill, @Mocco2016_therapy, @Bracard2016_thrace,
+  @Khoury2017_easi, @Muir2017_piste,
+  @Albers2018_defuse3, @Nogueira2018_dawn,
+  @Liu2020_best, @Martins2020_resilient,
+  @Langezaal2021_basics,
+  @Mocco2022_positive, @Tao2022_attention, @Jovin2022_baoche,
+  @Yoshimura2022_rescuejapan,
+  @Bendszus2023_tension, @Olthuis2023_mrclean_late,
+  @Huo2023_angel, @Sarraj2023_select2,
+  @Costalat2024_laste, @Yoo2024_tesla,
+  @Goyal2025_mvo, @Psychogios2025_distal
 ---
+
+```{=latex}
+\clearpage
+```
 
 ## Search Strategy
 
@@ -56,6 +79,10 @@ AND english[lang]
 
 This search returned 327 records.
 
+```{=latex}
+\clearpage
+```
+
 ## Eligibility Criteria
 
 - **Design:** Randomized.
@@ -65,6 +92,10 @@ This search returned 327 records.
 - **Outcomes:** Functional outcomes (modified Rankin Scale).
 - **Exclusions:** Non-randomized studies.
 
+```{=latex}
+\clearpage
+```
+
 ## Study Selection and Data Handling
 
 We screened titles/abstracts and then full texts, with disagreements resolved by consensus, as documented in the PRISMA 2020 diagram below.
@@ -73,11 +104,29 @@ For each included trial we extracted trial design, population, time window, imag
 
 For mRS results that were presented as percentages, we obtained mRS counts by assuming the reported percentage of patients achieving the given mRS score was obtained by dividing the number of patients achieving that score in the intention-to-treat population by the total number of patients in the intention-to-treat population across all 6 mRS categories.
 
+```{=latex}
+\clearpage
+```
+
 ## PRISMA Diagram
 
 ![PRISMA 2020 diagram of search strategy and study selection.](../Figures/prisma.svg){width=100%}
 
----
+```{=latex}
+\clearpage
+```
+
+## Detailed References
+
+All 30 included trials, listed in chronological order of publication.
+
+::: {#refs}
+:::
+
+```{=latex}
+\clearpage
+\begin{landscape}
+```
 
 ## Trial Characteristics
 
@@ -85,7 +134,8 @@ For mRS results that were presented as percentages, we obtained mRS counts by as
 #| label: tbl-s1
 
 library(dplyr)
-library(gt)
+library(knitr)
+library(kableExtra)
 
 trial_meta <- read.csv("../master_supporting_docs/supporting_code/trial_metadata.csv",
                        check.names = FALSE, stringsAsFactors = FALSE)
@@ -94,30 +144,36 @@ trial_meta |>
   arrange(year) |>
   select(trial_display, year, n_evt, n_control, occlusion, time_window, population,
          primary_endpoint, key_feature, notes) |>
-  gt() |>
-  cols_label(
-    trial_display    = "Trial",
-    year             = "Year",
-    n_evt            = "N (EVT)",
-    n_control        = "N (Control)",
-    occlusion        = "Occlusion",
-    time_window      = "Time Window",
-    population       = "Population",
-    primary_endpoint = "Primary Endpoint",
-    key_feature      = "Key Feature",
-    notes            = "Notes"
+  kable(
+    booktabs  = TRUE,
+    longtable = TRUE,
+    linesep   = "",
+    col.names = c("Trial", "Year", "N (EVT)", "N (Ctrl)", "Occlusion",
+                  "Time Window", "Population", "Primary Endpoint",
+                  "Key Feature", "Notes")
   ) |>
-  tab_style(
-    style = cell_text(weight = "bold"),
-    locations = cells_column_labels()
+  kable_styling(
+    latex_options = c("repeat_header"),
+    font_size = 8
   ) |>
-  tab_options(
-    table.font.size = px(9),
-    column_labels.background.color = "#f0f0f0"
-  )
+  row_spec(0, bold = TRUE, background = "#f0f0f0") |>
+  column_spec(1,  width = "2.0cm") |>
+  column_spec(2,  width = "0.8cm") |>
+  column_spec(3,  width = "0.9cm") |>
+  column_spec(4,  width = "1.1cm") |>
+  column_spec(5,  width = "1.7cm") |>
+  column_spec(6,  width = "1.5cm") |>
+  column_spec(7,  width = "3.0cm") |>
+  column_spec(8,  width = "2.4cm") |>
+  column_spec(9,  width = "2.8cm") |>
+  column_spec(10, width = "1.5cm")
 ```
 
----
+```{=latex}
+\end{landscape}
+\clearpage
+\begin{landscape}
+```
 
 ## Risk of Bias Assessment
 
@@ -125,318 +181,227 @@ trial_meta |>
 #| label: tbl-s2
 
 library(dplyr)
-library(gt)
+library(knitr)
+library(kableExtra)
 
 rob <- read.csv("../master_supporting_docs/supporting_code/risk_of_bias.csv",
                 check.names = FALSE, stringsAsFactors = FALSE)
 
-# Color-coding function
-color_cell <- function(x) {
-  case_when(
-    x == "Low risk"     ~ "#d4edda",
-    x == "High risk"    ~ "#f8d7da",
-    x == "Unclear risk" ~ "#fff3cd",
-    TRUE                ~ "#ffffff"
-  )
-}
-
-rob_display <- rob |>
-  rename(
-    Trial                       = trial_display,
-    `Random Sequence`           = random_sequence,
-    `Allocation Concealment`    = allocation_concealment,
-    `Blinding (Performance)`    = blinding_performance,
-    `Blinding (Detection)`      = blinding_detection,
-    `Attrition`                 = attrition,
-    `Selective Reporting`       = selective_reporting,
-    `Other`                     = other
-  ) |>
-  select(-trial)
-
-rob_gt <- rob_display |>
-  gt() |>
-  tab_style(
-    style = cell_text(weight = "bold"),
-    locations = cells_column_labels()
-  ) |>
-  tab_options(
-    table.font.size = px(9),
-    column_labels.background.color = "#f0f0f0"
-  )
-
-# Apply color coding to each domain column
 domain_cols <- c("Random Sequence", "Allocation Concealment",
                  "Blinding (Performance)", "Blinding (Detection)",
                  "Attrition", "Selective Reporting", "Other")
 
-for (col in domain_cols) {
-  for (i in seq_len(nrow(rob_display))) {
-    val <- rob_display[[col]][i]
-    bg <- color_cell(val)
-    rob_gt <- rob_gt |>
-      tab_style(
-        style = cell_fill(color = bg),
-        locations = cells_body(columns = all_of(col), rows = i)
-      )
-  }
+rob_display <- rob |>
+  rename(
+    Trial                    = trial_display,
+    `Random Sequence`        = random_sequence,
+    `Allocation Concealment` = allocation_concealment,
+    `Blinding (Performance)` = blinding_performance,
+    `Blinding (Detection)`   = blinding_detection,
+    `Attrition`              = attrition,
+    `Selective Reporting`    = selective_reporting,
+    `Other`                  = other
+  ) |>
+  select(-trial)
+
+get_colors <- function(vals) {
+  dplyr::case_when(
+    vals == "Low risk"     ~ "#d4edda",
+    vals == "High risk"    ~ "#f8d7da",
+    vals == "Unclear risk" ~ "#fff3cd",
+    TRUE                   ~ "#ffffff"
+  )
 }
 
-rob_gt |>
-  tab_source_note(
-    source_note = "Green = Low risk; Red = High risk; Yellow = Unclear risk."
-  )
+tbl <- rob_display |>
+  kable(
+    booktabs  = TRUE,
+    longtable = TRUE,
+    linesep   = ""
+  ) |>
+  kable_styling(
+    latex_options = c("repeat_header"),
+    font_size = 8
+  ) |>
+  row_spec(0, bold = TRUE, background = "#f0f0f0") |>
+  column_spec(1, width = "2.0cm") |>
+  column_spec(2, width = "2.2cm") |>
+  column_spec(3, width = "2.5cm") |>
+  column_spec(4, width = "2.3cm") |>
+  column_spec(5, width = "2.3cm") |>
+  column_spec(6, width = "2.0cm") |>
+  column_spec(7, width = "2.3cm") |>
+  column_spec(8, width = "1.5cm")
+
+for (col in domain_cols) {
+  col_idx <- which(names(rob_display) == col)
+  tbl <- column_spec(tbl, col_idx, background = get_colors(rob_display[[col]]))
+}
+
+tbl
 ```
 
----
-
-## Detailed References
-
-All 30 included trials, listed by trial acronym.
-
-1. **SYNTHESIS** — Ciccone A, Valvassori L, Nichelatti M, Sgoifo A, Ponzio M, Sterzi R, et al. Endovascular Treatment for Acute Ischemic Stroke. *N Engl J Med* 2013; 368:904–13.
-
-2. **IMS III** — Broderick JP, Palesch YY, Demchuk AM, Yeatts SD, Khatri P, Hill MD, et al. Endovascular therapy after intravenous t-PA versus t-PA alone for stroke. *N Engl J Med* 2013; 368:893–903.
-
-3. **MR RESCUE** — Kidwell CS, Jahan R, Gornbein J, Alger JR, Nenov V, Ajani Z, et al. A trial of imaging selection and endovascular treatment for ischemic stroke. *N Engl J Med* 2013; 368:914–23.
-
-4. **THRILL** — Bendszus M, Thomalla G, Hacke W, Knauth M, Gerloff C, Bonekamp S, et al. Early termination of THRILL, a prospective study of mechanical thrombectomy in patients with acute ischemic stroke ineligible for i.v. thrombolysis. *Clin Neuroradiol* 2016; 26:499–500.
-
-5. **EASI** — Khoury NN, Darsaut TE, Ghostine J, Deschaintre Y, Daneault N, Durocher A, et al. Endovascular thrombectomy and medical therapy versus medical therapy alone in acute stroke: A randomized care trial. *J Neuroradiol* 2017; 44:198–202.
-
-6. **LASTE** — Costalat V, Jovin TG, Albucher JF, Cognard C, Henon H, Nouri N, et al. Trial of thrombectomy for stroke with a large infarct of unrestricted size. *N Engl J Med* 2024; 390:1677–89.
-
-7. **TESLA** — Writing Committee for the TESLA Investigators, Yoo AJ, Zaidat OO, Sheth SA, Rai AT, Ortega-Gutierrez S, et al. Thrombectomy for stroke with large infarct on noncontrast CT: The TESLA randomized clinical trial. *JAMA* 2024; 332:1355–66.
-
-8. **DISTAL** — Psychogios M, Brehm A, Ribo M, Rizzo F, Strbian D, Räty S, et al. Endovascular treatment for stroke due to occlusion of medium or distal vessels. *N Engl J Med* 2025; published online Feb 5. DOI:10.1056/NEJMoa2408954.
-
-9. **ESCAPE-MeVO** — Goyal M, Ospel JM, Ganesh A, Dowlatshahi D, Volders D, Möhlenbruch MA, et al. Endovascular treatment of stroke due to medium-vessel occlusion. *N Engl J Med* 2025; published online Feb 5. DOI:10.1056/NEJMoa2411668.
-
-10. **TENSION** — Bendszus M, Fiehler J, Subtil F, Bonekamp S, Aamodt AH, Fuentes B, et al. Endovascular thrombectomy for acute ischaemic stroke with established large infarct: multicentre, open-label, randomised trial. *Lancet* 2023; 402:1753–63.
-
-11. **THERAPY** — Mocco J, Zaidat OO, von Kummer R, Yoo AJ, Gupta R, Lopes D, et al. Aspiration Thrombectomy After Intravenous Alteplase Versus Intravenous Alteplase Alone. *Stroke* 2016; 47:2331–8.
-
-12. **MR CLEAN-LATE** — Olthuis SGH, Pirson FAV, Pinckaers FME, Hinsenveld WH, Nieboer D, Ceulemans A, et al. Endovascular treatment versus no endovascular treatment after 6–24 h in patients with ischaemic stroke and collateral flow on CT angiography (MR CLEAN-LATE). *Lancet* 2023; 401:1371–80.
-
-13. **THRACE** — Bracard S, Ducrocq X, Mas JL, Soudant M, Oppenheim C, Moulin T, et al. Mechanical thrombectomy after intravenous alteplase versus alteplase alone after stroke (THRACE): a randomised controlled trial. *Lancet Neurol* 2016; 15:1138–47.
-
-14. **PISTE** — Muir KW, Ford GA, Messow CM, Ford I, Murray A, Clifton A, et al. Endovascular therapy for acute ischaemic stroke: the Pragmatic Ischaemic Stroke Thrombectomy Evaluation (PISTE) randomised, controlled trial. *J Neurol Neurosurg Psychiatry* 2017; 88:38–44.
-
-15. **POSITIVE** — Mocco J, Siddiqui AH, Fiorella D, Alexander MJ, Arthur AS, Baxter BW, et al. POSITIVE: Perfusion imaging selection of ischemic stroke patients for endovascular therapy. *J Neurointerv Surg* 2022; 14:126–32.
-
-16. **RESILIENT** — Martins SO, Mont'Alverne F, Rebello LC, Abud DG, Silva GS, Lima FO, et al. Thrombectomy for Stroke in the Public Health Care System of Brazil. *N Engl J Med* 2020; 382:2316–26.
-
-17. **DEFUSE-3** — Albers GW, Marks MP, Kemp S, Christensen S, Tsai JP, Ortega-Gutierrez S, et al. Thrombectomy for Stroke at 6 to 16 Hours with Selection by Perfusion Imaging. *N Engl J Med* 2018; 378:708–18.
-
-18. **DAWN** — Nogueira RG, Jadhav AP, Haussen DC, Bonafe A, Budzik RF, Bhuva P, et al. Thrombectomy 6 to 24 Hours after Stroke with a Mismatch between Deficit and Infarct. *N Engl J Med* 2018; 378:11–21.
-
-19. **BASICS** — Langezaal LCM, van der Hoeven EJRJ, Mont'Alverne FJA, de Carvalho JJF, Lima FO, Dippel DWJ, et al. Endovascular Therapy for Stroke Due to Basilar-Artery Occlusion. *N Engl J Med* 2021; 384:1910–20.
-
-20. **BEST** — Liu X, Dai Q, Ye R, Zi W, Liu Y, Wang H, et al. Endovascular treatment versus standard medical treatment for vertebrobasilar artery occlusion (BEST): an open-label, randomised controlled trial. *Lancet Neurol* 2020; 19:115–22.
-
-21. **ATTENTION** — Tao C, Nogueira RG, Zhu Y, Sun J, Han H, Yuan G, et al. Trial of Endovascular Treatment of Acute Basilar-Artery Occlusion. *N Engl J Med* 2022; 387:1361–72.
-
-22. **BAOCHE** — Jovin TG, Li C, Wu L, Wu C, Chen J, Jiang C, et al. Trial of Thrombectomy 6 to 24 Hours after Stroke Due to Basilar-Artery Occlusion. *N Engl J Med* 2022; 387:1373–84.
-
-23. **EXTEND-IA** — Campbell BCV, Mitchell PJ, Kleinig TJ, Dewey HM, Churilov L, Yassi N, et al. Endovascular therapy for ischemic stroke with perfusion-imaging selection. *N Engl J Med* 2015; 372:1009–18.
-
-24. **SWIFT PRIME** — Saver JL, Goyal M, Bonafe A, Diener H-C, Levy EI, Pereira VM, et al. Stent-retriever thrombectomy after intravenous t-PA vs. t-PA alone in stroke. *N Engl J Med* 2015; 372:2285–95.
-
-25. **ESCAPE** — Goyal M, Demchuk AM, Menon BK, Eesa M, Rempel JL, Thornton J, et al. Randomized assessment of rapid endovascular treatment of ischemic stroke. *N Engl J Med* 2015; 372:1019–30.
-
-26. **REVASCAT** — Jovin TG, Chamorro A, Cobo E, de Miquel MA, Molina CA, Rovira A, et al. Thrombectomy within 8 hours after symptom onset in ischemic stroke. *N Engl J Med* 2015; 372:2296–306.
-
-27. **MR CLEAN** — Berkhemer OA, Fransen PSS, Beumer D, van den Berg LA, Lingsma HF, Yoo AJ, et al. A randomized trial of intraarterial treatment for acute ischemic stroke. *N Engl J Med* 2015; 372:11–20.
-
-28. **RESCUE-Japan LIMIT** — Yoshimura S, Sakai N, Yamagami H, Uchida K, Beppu M, Toyoda K, et al. Endovascular Therapy for Acute Stroke with a Large Ischemic Region. *N Engl J Med* 2022; 386:1303–13.
-
-29. **ANGEL-ASPECT** — Huo X, Ma G, Tong X, Zhang X, Pan Y, Nguyen TN, et al. Trial of Endovascular Therapy for Acute Ischemic Stroke with Large Infarct. *N Engl J Med* 2023; 388:1272–83.
-
-30. **SELECT2** — Sarraj A, Hassan AE, Abraham MG, Ortega-Gutierrez S, Kasner SE, Hussain MS, et al. Trial of Endovascular Thrombectomy for Large Ischemic Strokes. *N Engl J Med* 2023; 388:1259–71.
-
----
+```{=latex}
+\end{landscape}
+```
 
 ## Main Model Specification
 
+```{r}
+#| label: load-models
+library(brms)
+library(posterior)
+options(width = 80)
+fit_ordinal  <- readRDS("../master_supporting_docs/supporting_code/artifacts/fit_ordinal.rds")
+fit_uv       <- readRDS("../master_supporting_docs/supporting_code/artifacts/fit_uv.rds")
+fit_adjacent <- readRDS("../master_supporting_docs/supporting_code/artifacts/fit_adjacent.rds")
+fit_bin      <- readRDS("../master_supporting_docs/supporting_code/artifacts/fit_bin.rds")
+```
+
 The main model was a Bayesian hierarchical proportional-odds cumulative ordinal model fit with `brms` (Stan backend via `cmdstanr`). The model formula was:
 
-```
-mrs_better | weights(count) ~ treatment + (1 + treatment | trial)
-Family: cumulative (logit link)
-Priors: Normal(0, 1) for fixed effects, standard deviations, and thresholds
-Chains: 4  |  Iterations: 2000 (1000 warmup)  |  Total post-warmup draws: 4000
+```{r}
+#| label: main-model-output
+print(fit_ordinal)
 ```
 
-**Main model summary output:**
+All Rhat values $\leq$ `r round(max(rhat(fit_ordinal), na.rm = TRUE), 2)`, consistent with convergence. Bulk and tail effective sample sizes were adequate (all >400 for key parameters).
 
-```
-Family: cumulative
-Links: mu = logit
-Formula: ordinal_value ~ treatment + (1 + treatment | trial)
-Data: data_long (Number of observations: 8100)
-Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
-       total post-warmup draws = 4000
-
-Multilevel Hyperparameters:
-~trial (Number of levels: 30)
-
-                                     Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-sd(Intercept)                           0.75      0.11     0.57     1.00 1.00     1003     1605
-sd(treatmentthrombectomy)               0.35      0.08     0.22     0.51 1.00     1472     2142
-cor(Intercept,treatmentthrombectomy)   -0.49      0.18    -0.79    -0.09 1.00     2250     2565
-
-Regression Coefficients:
-              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-Intercept[1]    -1.08      0.15    -1.37    -0.80 1.01      490     1069
-Intercept[2]    -0.52      0.14    -0.81    -0.24 1.01      485     1124
-Intercept[3]     0.25      0.14    -0.03     0.53 1.01      488      949
-Intercept[4]     0.96      0.14     0.67     1.23 1.01      488      953
-Intercept[5]     1.69      0.14     1.41     1.98 1.01      496     1114
-Intercept[6]     2.91      0.15     2.62     3.21 1.01      520     1028
-treatmentthrombectomy  0.46  0.08  0.30  0.62 1.00  1467  2271
+```{=latex}
+\clearpage
 ```
 
-All Rhat values ≤ 1.01, indicating convergence. Bulk and tail effective sample sizes were adequate (all >400 for key parameters).
+## Alternative Models
+
+Three additional models were fit to assess robustness of the main findings.
+
+### Alternative Model 1: Ordinal (PO + Unequal Variances)
+
+Formula: `mrs_better | weights(count) ~ treatment + (1 + treatment | trial); disc ~ 0 + treatment`
+Family: cumulative (logit link, log disc link)
+Chains: 4 | Iterations: 2000 (1000 warmup) | Total post-warmup draws: 4000
+
+```{r}
+#| label: model-uv-output
+print(fit_uv)
+```
+
+### Alternative Model 2: Ordinal (Adjacent-Category)
+
+Formula: `mrs_better | weights(count) ~ treatment + (1 + treatment | trial)`
+Family: acat (adjacent-category logit)
+Chains: 4 | Iterations: 2000 (1000 warmup) | Total post-warmup draws: 4000
+
+```{r}
+#| label: model-adjacent-output
+print(fit_adjacent)
+```
+
+### Alternative Model 3: Binary (mRS 0–2 vs 3–6)
+
+Formula: `good_n | trials(total_n) ~ treatment + (1 + treatment | trial)`
+Family: binomial (logit link)
+Chains: 4 | Iterations: 2000 (1000 warmup) | Total post-warmup draws: 4000
+
+```{r}
+#| label: model-bin-output
+print(fit_bin)
+```
+
+All three alternative models yield a consistently negative intercept–slope correlation, confirming robustness of the main finding.
+
+## Robustness of $\rho$ to Model Specification
+
+Posterior medians and 95% credible intervals for $\rho$ under the primary proportional-odds ordinal model and three alternative models: an unequal-variance proportional-odds model, an adjacent-category ordinal model, and a binary model (mRS 0–2 vs 3–6). Estimates remain negative across all specifications.
+
+![Robustness of the intercept–slope correlation to model specification.](../Figures/figure_three.svg){width=100%}
+
+```{=latex}
+\clearpage
+```
+
+## Absolute Benefit Across Model Specifications
+
+For each model, points show each trial's posterior median control-group probability of functional independence (x-axis) and posterior median absolute benefit in functional independence due to thrombectomy (y-axis). Functional independence is defined as mRS 0–2. The dashed line indicates no absolute benefit; the smooth curve is a descriptive fit with 95% uncertainty band.
+
+![Baseline prognosis and absolute benefit in functional independence.](../Figures/figure_four.svg){width=100%}
+
+```{=latex}
+\clearpage
+```
 
 ## Model Diagnostics
 
-The following diagnostic figures are generated by running `run.R` and are saved to `artifacts/` (not tracked in git due to file size). After running the analysis, they can be found at the paths indicated.
+The following diagnostic figures are generated by running `run.R` and are saved to `master_supporting_docs/supporting_code/artifacts/`.
 
-**Trace Plots** (`Figures/ordinal_trace_plots.svg`)
+### Trace Plots
 
 Markov chain trace plots for the six threshold parameters, the treatment effect, and the three variance-covariance hyperparameters.
 
 ```{r}
 #| label: fig-trace
 #| fig-cap: "Trace plots for main model parameters."
-#| eval: !expr file.exists("../Figures/ordinal_trace_plots.svg")
+#| out-width: "100%"
+#| eval: !expr file.exists("../master_supporting_docs/supporting_code/artifacts/ordinal_trace_plots.svg")
 
-knitr::include_graphics("../Figures/ordinal_trace_plots.svg")
+knitr::include_graphics("../master_supporting_docs/supporting_code/artifacts/ordinal_trace_plots.svg")
 ```
 
-*If this figure is missing, run `master_supporting_docs/supporting_code/run.R` to generate the diagnostic SVGs.*
+<!-- Developer note: If this figure is missing, run master_supporting_docs/supporting_code/run.R to generate diagnostic SVGs. -->
 
----
+```{=latex}
+\clearpage
+```
 
-**R-hat and Effective Sample Size** (`Figures/ordinal_convergence_values.svg`)
+### R-hat and Effective Sample Size
 
 ```{r}
 #| label: fig-rhat
 #| fig-cap: "R-hat values and effective sample sizes for main model."
-#| eval: !expr file.exists("../Figures/ordinal_convergence_values.svg")
+#| out-width: "100%"
+#| eval: !expr file.exists("../master_supporting_docs/supporting_code/artifacts/ordinal_convergence_values.svg")
 
-knitr::include_graphics("../Figures/ordinal_convergence_values.svg")
+knitr::include_graphics("../master_supporting_docs/supporting_code/artifacts/ordinal_convergence_values.svg")
 ```
 
-*If this figure is missing, run `master_supporting_docs/supporting_code/run.R` to generate the diagnostic SVGs.*
+<!-- Developer note: If this figure is missing, run master_supporting_docs/supporting_code/run.R to generate diagnostic SVGs. -->
 
----
+```{=latex}
+\clearpage
+```
 
-**Posterior Predictive Check** (`Figures/ordinal_posterior_predictive_check.svg`)
+### Posterior Predictive Check
 
 ```{r}
 #| label: fig-ppc
 #| fig-cap: "Posterior predictive check for the main model, grouped by treatment arm."
-#| eval: !expr file.exists("../Figures/ordinal_posterior_predictive_check.svg")
+#| out-width: "100%"
+#| eval: !expr file.exists("../master_supporting_docs/supporting_code/artifacts/ordinal_posterior_predictive_check.svg")
 
-knitr::include_graphics("../Figures/ordinal_posterior_predictive_check.svg")
+knitr::include_graphics("../master_supporting_docs/supporting_code/artifacts/ordinal_posterior_predictive_check.svg")
 ```
 
-*If this figure is missing, run `master_supporting_docs/supporting_code/run.R` to generate the diagnostic SVGs.*
+<!-- Developer note: If this figure is missing, run master_supporting_docs/supporting_code/run.R to generate diagnostic SVGs. -->
 
----
+```{=latex}
+\clearpage
+```
 
-**Prior Sensitivity** (`Figures/ordinal_power_scaling_sensitivity.svg`)
+### Prior and Likelihood Sensitivity
 
 Prior power-scaling sensitivity analysis for key model parameters. Sensitivity was low across all parameters.
 
 ```{r}
 #| label: fig-prior
 #| fig-cap: "Prior sensitivity (power-scaling) analysis for the main model."
-#| eval: !expr file.exists("../Figures/ordinal_power_scaling_sensitivity.svg")
+#| out-width: "100%"
+#| eval: !expr file.exists("../master_supporting_docs/supporting_code/artifacts/ordinal_power_scaling_sensitivity.svg")
 
-knitr::include_graphics("../Figures/ordinal_power_scaling_sensitivity.svg")
+knitr::include_graphics("../master_supporting_docs/supporting_code/artifacts/ordinal_power_scaling_sensitivity.svg")
 ```
 
-*If this figure is missing, run `master_supporting_docs/supporting_code/run.R` to generate the diagnostic SVGs.*
+<!-- Developer note: If this figure is missing, run master_supporting_docs/supporting_code/run.R to generate diagnostic SVGs. -->
 
----
-
-## Alternative Models
-
-Three additional prespecified models were fit to assess robustness of the main findings.
-
-**Alternative Model 1: Ordinal (PO + Unequal Variances)**
-
+```{=latex}
+\clearpage
 ```
-Family: cumulative
-Links: mu = logit; disc = log
-Formula: mrs_better | weights(count) ~ treatment + (1 + treatment | trial)
-         disc ~ 0 + treatment
-Data: data_long (Number of observations: 420)
-Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
-       total post-warmup draws = 4000
-
-Multilevel Hyperparameters (~trial, 30 levels):
-  sd(Intercept)                           0.80  (SE 0.11; 95% CI 0.61–1.04)
-  sd(treatmentthrombectomy)               0.37  (SE 0.08; 95% CI 0.23–0.55)
-  cor(Intercept,treatmentthrombectomy)   -0.46  (SE 0.19; 95% CI -0.76 to -0.06)
-
-Key Regression Coefficients:
-  treatmentthrombectomy       0.48  (SE 0.08; 95% CI 0.31–0.64)
-  disc_treatmentthrombectomy -0.14  (SE 0.02; 95% CI -0.18 to -0.09)
-```
-
-**Alternative Model 2: Ordinal (Adjacent-Category)**
-
-```
-Family: acat (adjacent-category logit)
-Formula: mrs_better | weights(count) ~ treatment + (1 + treatment | trial)
-Data: data_long (Number of observations: 403)
-Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
-       total post-warmup draws = 4000
-
-Multilevel Hyperparameters (~trial, 30 levels):
-  sd(Intercept)                           0.25  (SE 0.04; 95% CI 0.19–0.33)
-  sd(treatmentthrombectomy)               0.11  (SE 0.02; 95% CI 0.07–0.17)
-  cor(Intercept,treatmentthrombectomy)   -0.62  (SE 0.16; 95% CI -0.87 to -0.28)
-
-Key Regression Coefficients:
-  treatmentthrombectomy   0.15  (SE 0.03; 95% CI 0.10–0.20)
-```
-
-**Alternative Model 3: Binary (mRS 0–2 vs 3–6)**
-
-```
-Family: binomial (logit link)
-Formula: good_n | trials(total_n) ~ treatment + (1 + treatment | trial)
-Data: data_bin (Number of observations: 60)
-Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
-       total post-warmup draws = 4000
-
-Multilevel Hyperparameters (~trial, 30 levels):
-  sd(Intercept)                           0.98  (SE 0.14; 95% CI 0.74–1.29)
-  sd(treatmentthrombectomy)               0.54  (SE 0.10; 95% CI 0.37–0.78)
-  cor(Intercept,treatmentthrombectomy)   -0.65  (SE 0.14; 95% CI -0.88 to -0.32)
-
-Key Regression Coefficients:
-  Intercept               -1.16  (SE 0.18; 95% CI -1.52 to -0.81)
-  treatmentthrombectomy    0.67  (SE 0.12; 95% CI 0.44–0.90)
-```
-
-All three alternative models yield a consistently negative intercept–slope correlation, confirming robustness of the main finding.
-
----
-
-## Figure S1. Robustness of $\rho$ to Model Specification
-
-Posterior medians and 95% credible intervals for $\rho$ under the primary proportional-odds ordinal model and three alternative prespecified models: an unequal-variance proportional-odds model, an adjacent-category ordinal model, and a binary model (mRS 0–2 vs 3–6). Estimates remain negative across all specifications.
-
-![Figure S1. Robustness of the intercept–slope correlation to model specification.](../Figures/figure_three.svg){width=100%}
-
----
-
-## Figure S2. Absolute Benefit Across Model Specifications
-
-For each model, points show each trial's posterior median control-group probability of functional independence (x-axis) and posterior median absolute benefit in functional independence due to thrombectomy (y-axis). Functional independence is defined as mRS 0–2. The dashed line indicates no absolute benefit; the smooth curve is a descriptive fit with 95% uncertainty band.
-
-![Figure S2. Baseline prognosis and absolute benefit in functional independence.](../Figures/figure_four.svg){width=100%}

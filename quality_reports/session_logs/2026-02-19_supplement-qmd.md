@@ -53,3 +53,31 @@ Convert the Word-based supplementary material to a clean, renderable `manuscript
 2. **Stroke submission:** Still need to render supplement as DOCX for journal submission. Test `quarto render supplement.qmd --to docx`.
 
 3. **THRILL RoB "other" domain:** Listed as High risk for selective reporting — may warrant a note in the supplement text.
+
+---
+**Context compaction (auto) at 08:21**
+Check git log and quality_reports/plans/ for current state.
+
+---
+
+## 2026-02-20: PDF Readability Improvements
+
+**Changes implemented (supplement.qmd):**
+- All `---` horizontal rules replaced with `{{< pagebreak >}}` — every major section starts fresh
+- Tables 1 and 2 wrapped in `{=latex}` landscape blocks (`\begin{landscape}...\end{landscape}`)
+- `pdflscape` package added to PDF YAML header
+- gt font size increased px(9) → px(11) for both tables (landscape provides room)
+- Diagnostic figure subsections promoted to `### Trace Plots`, `### R-hat and Effective Sample Size`, `### Posterior Predictive Check`, `### Prior Sensitivity` (appear in TOC)
+- Alternative model bold labels promoted to `### Alternative Model 1/2/3` headings
+- `#| out-width: "100%"` added to all four diagnostic figure chunks
+- `options(width = 80)` added to load-models chunk (prevents brms output overflow)
+- `#| tbl-cap:` added to tbl-s1 and tbl-s2 chunks
+- Deleted `manuscripts/supplement.typ` (stale Typst artifact)
+
+**[LEARN:quarto]** `.content-visible when-format="pdf"` divs around R chunks with `tbl-cap` corrupt LaTeX output — use `{=latex}` raw blocks instead (they're automatically PDF-only).
+
+**Verification:** `bash scripts/render_supplement.sh` → HTML + PDF both clean, 479K PDF produced.
+
+---
+**Context compaction (auto) at 14:40**
+Check git log and quality_reports/plans/ for current state.
