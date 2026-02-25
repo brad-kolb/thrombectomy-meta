@@ -310,7 +310,7 @@ print(fit_bin)
 
 All three alternative models yield a consistently negative intercept–slope correlation, confirming robustness of the main finding.
 
-## Robustness of $\rho$ to Model Specification
+## Supplementary Figure 1: Robustness of $\rho$ to Model Specification
 
 Posterior medians and 95% credible intervals for $\rho$ under the primary proportional-odds ordinal model and three alternative models: an unequal-variance proportional-odds model, an adjacent-category ordinal model, and a binary model (mRS 0–2 vs 3–6). Estimates remain negative across all specifications.
 
@@ -320,7 +320,7 @@ Posterior medians and 95% credible intervals for $\rho$ under the primary propor
 \clearpage
 ```
 
-## Absolute Benefit Across Model Specifications
+## Supplementary Figure 2: Absolute Benefit Across Model Specifications
 
 For each model, points show each trial's posterior median control-group probability of functional independence (x-axis) and posterior median absolute benefit in functional independence due to thrombectomy (y-axis). Functional independence is defined as mRS 0–2. The dashed line indicates no absolute benefit; the smooth curve is a descriptive fit with 95% uncertainty band.
 
