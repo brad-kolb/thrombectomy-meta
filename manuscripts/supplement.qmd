@@ -11,9 +11,6 @@ format:
     number-sections: false
     theme: cosmo
     embed-resources: true
-  docx:
-    toc: true
-    number-sections: false
   pdf:
     toc: true
     number-sections: false
