@@ -26,7 +26,7 @@ We respectfully submit our manuscript, **"Worse Prognosis, Larger Benefit: A Bay
 
 **Why this matters for *Stroke*'s readership.** These findings provide a randomized-evidence basis for the more inclusive selection criteria now endorsed in the 2026 AHA/ASA guidelines, and they challenge the historical paradigm that poor baseline prognosis signals futility. For practicing neurologists and neurosurgeons making real-time decisions about thrombectomy for patients with large ischemic cores, basilar artery occlusions, or late presentations, this analysis offers a unifying framework: worse expected outcome without intervention predicts greater, not lesser, benefit from thrombectomy.
 
-**Compliance.** This systematic review and meta-analysis was conducted and is reported in accordance with PRISMA 2020 guidance (checklist enclosed). The review was pre-registered at the Open Science Framework (https://osf.io/smcen/). Data and code are publicly available at https://osf.io/smcen/. This manuscript has not been submitted to or published in any other journal. All authors have read and approved the final version.
+**Compliance.** This systematic review and meta-analysis was conducted and is reported in accordance with PRISMA 2020 guidance (checklist enclosed). An early version of the review was pre-registered at the Open Science Framework (https://osf.io/smcen/). Data and code are publicly available at https://osf.io/smcen/. This manuscript has not been submitted to or published in any other journal. All authors have read and approved the final version.
 
 We are grateful for your consideration.
 

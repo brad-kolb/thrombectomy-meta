@@ -15,7 +15,7 @@ affiliation: |
   1725 W. Harrison St. Suite 855, Chicago, Illinois, 60612, USA
 date: today
 # Stroke 150-character key message (required at submission, May 2025):
-# "In 30 thrombectomy RCTs, worse baseline prognosis predicted larger benefit: ceiling effect confirmed, no floor effect found."
+# "In 30 thrombectomy RCTs, worse baseline prognosis predicted larger benefit."
 format:
   html:
     toc: true
@@ -40,11 +40,7 @@ csl: vancouver.csl
 
 **Background**
 
-Whether mechanical thrombectomy efficacy is bounded by floor and ceiling effects, such that certain stroke populations can be "too sick" or "too well" to benefit, remains debated and has not been tested across the full body of randomized trial evidence.
-
-**Purpose**
-
-We aimed to estimate the relationship between control-group outcomes (baseline prognosis under medical therapy alone) and treatment effect magnitude across all published thrombectomy trials.
+Whether mechanical thrombectomy efficacy is bounded by floor and ceiling effects, such that certain stroke populations can be "too sick" or "too well" to benefit, remains debated and has not been tested across the full body of randomized trial evidence. We aimed to estimate the relationship between control-group outcomes (baseline prognosis under medical therapy alone) and treatment effect magnitude across all published thrombectomy trials.
 
 **Methods**
 
@@ -57,10 +53,6 @@ Thrombectomy demonstrated robust overall benefit (common log odds ratio 0.46; 95
 **Conclusions**
 
 Across 30 randomized thrombectomy trials, worse population-level outcomes with medical treatment alone predicted larger population-level treatment benefit from thrombectomy. We found no evidence for a floor effect within the range of enrolled populations. Evidence for a ceiling effect was observed. These findings support guidelines with inclusive patient selection for thrombectomy, particularly for populations with poor expected outcomes without intervention.
-
-**Funding**
-
-None.
 
 ```{=latex}
 \clearpage

@@ -60,3 +60,11 @@ Fixed Python 3.9 incompatibility in `log-reminder.py` (both thrombectomy-meta an
 - THRILL RoB "other" domain listed as High risk — may warrant supplement footnote
 - Plan saved: `quality_reports/plans/2026-02-22_introduction-revision.md` — Priority 5–9 items not yet executed (Discussion ecological fallacy treatment, technology/era limitation, abstract alignment, word count check)
 - Abstract may still reference old framing — check before submission
+
+---
+**Context compaction (auto) at 09:14**
+Check git log and quality_reports/plans/ for current state.
+
+---
+**Context compaction (auto) at 09:14**
+Check git log and quality_reports/plans/ for current state.
