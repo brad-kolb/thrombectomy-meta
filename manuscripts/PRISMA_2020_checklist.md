@@ -1,8 +1,21 @@
-# PRISMA 2020 Checklist
+---
+title: "PRISMA 2020 Checklist"
+subtitle: "Worse Prognosis, Larger Benefit: A Bayesian Hierarchical Ordinal Meta-analysis of 30 Thrombectomy Trials"
+author: "Bradley Kolb, MD"
+date: "February 25, 2026"
+format:
+  pdf:
+    toc: false
+    number-sections: false
+    geometry: margin=1in
+    keep-tex: false
+---
 
-**Manuscript title:** Floor and Ceiling Effects in Thrombectomy: A Bayesian Hierarchical Ordinal Meta-analysis of 30 Randomized Trials
-
-**Completed by:** Bradley Kolb, MD | **Date:** 2026-02-19
+| | |
+|---|---|
+| **Manuscript title** | Worse Prognosis, Larger Benefit: A Bayesian Hierarchical Ordinal Meta-analysis of 30 Thrombectomy Trials |
+| **Completed by** | Bradley Kolb, MD |
+| **Date** | February 25, 2026 |
 
 ---
 
@@ -10,7 +23,7 @@
 
 | Item | Checklist Item | Reported on Page / Section |
 |------|---------------|---------------------------|
-| 1 | Identify the report as a systematic review. | Title page (title includes "Meta-analysis of 30 Randomized Trials") |
+| 1 | Identify the report as a systematic review. | Title page (title includes "Meta-analysis of 30 Thrombectomy Trials") |
 
 ---
 
@@ -26,8 +39,8 @@
 
 | Item | Checklist Item | Reported on Page / Section |
 |------|---------------|---------------------------|
-| 3 | Describe the rationale for the review in the context of existing knowledge. | Introduction, paragraph 1–3 |
-| 4 | Provide an explicit statement of the objective(s) or question(s) the review addresses. | Introduction, final paragraph ("We performed a Bayesian hierarchical ordinal meta-analysis…to test the floor/ceiling hypothesis") |
+| 3 | Describe the rationale for the review in the context of existing knowledge. | Introduction, paragraphs 1–3 |
+| 4 | Provide an explicit statement of the objective(s) or question(s) the review addresses. | Introduction, paragraph 3 ("We estimated this relationship by fitting a hierarchical Bayesian ordinal regression model… directly estimates the correlation (ρ) between trial-level baseline prognosis and thrombectomy benefit as a single parameter") |
 
 ---
 
@@ -88,7 +101,7 @@
 |------|---------------|---------------------------|
 | 13a | Describe the processes used to decide which studies were eligible for each synthesis (e.g. tabulating the study intervention characteristics and comparing against the planned group for each synthesis). | Methods (all 30 eligible trials included in primary analysis) |
 | 13b | Describe any methods required to prepare the data for presentation or synthesis, such as handling of missing data, data conversions or imputation. | Methods, Statistical Model ("expanded published mRS distributions into category counts…using frequency weights") |
-| 13c | Describe any methods used to tabulate or visually display results of individual studies and syntheses. | Results, Figures 1 and 2; Supplementary Figures S1 and S2 |
+| 13c | Describe any methods used to tabulate or visually display results of individual studies and syntheses. | Results, Figures 1 and 2; Supplementary Figures 1 and 2 |
 | 13d | Describe any methods used to synthesize results and provide a rationale for the choice(s). If meta-analysis was performed, describe the model(s), method(s) to identify the presence and extent of statistical heterogeneity, and software package(s) used. | Methods, Statistical Model and Implementation and Reproducibility (Bayesian hierarchical ordinal regression; brms/Stan) |
 | 13e | Describe any methods used to explore possible causes of heterogeneity among study results (e.g. subgroup analysis, meta-regression). | Methods (correlated intercept–slope model directly estimates relationship between heterogeneity in prognosis and treatment effect) |
 | 13f | Describe any sensitivity analyses conducted to assess robustness of the synthesized results. | Methods, Implementation and Reproducibility ("three additional prespecified models") |
@@ -113,7 +126,7 @@
 
 | Item | Checklist Item | Reported on Page / Section |
 |------|---------------|---------------------------|
-| 16a | Describe the results of the search and selection process, including reasons for exclusions at each stage of the process, and preferably incorporating a flow diagram. | Results, first paragraph; Supplementary Figure (PRISMA flow diagram) |
+| 16a | Describe the results of the search and selection process, including reasons for exclusions at each stage of the process, and preferably incorporating a flow diagram. | Results, first paragraph; Supplementary Material — PRISMA flow diagram |
 | 16b | Cite studies that might appear to meet the inclusion criteria but which were excluded, and explain why they were excluded. | Supplementary Material — Study Selection (excluded trials listed with reasons) |
 
 ### Study characteristics
@@ -139,9 +152,9 @@
 | Item | Checklist Item | Reported on Page / Section |
 |------|---------------|---------------------------|
 | 20a | For each synthesis, briefly summarize the characteristics and risk of bias among contributing studies. | Results, all five subsections; Discussion |
-| 20b | Present results of all statistical syntheses conducted. If meta-analysis was done, present for each the summary estimate and its precision and measures of statistical heterogeneity. | Results (common log OR 0·46; τ = 0·34; σ = 0·74; ρ = −0·51, all with 95% CrI) |
+| 20b | Present results of all statistical syntheses conducted. If meta-analysis was done, present for each the summary estimate and its precision and measures of statistical heterogeneity. | Results (common log OR 0.46; τ = 0.34; σ = 0.74; ρ = −0.51, all with 95% CrI) |
 | 20c | Present results of all investigations of possible causes of heterogeneity among study results. | Results, "Trial-level relationship…" subsection; Figure 2 |
-| 20d | Present results of all sensitivity analyses conducted to assess the robustness of the synthesized results. | Results, "Robustness and clinical translation" subsection; Supplementary Figure S1 |
+| 20d | Present results of all sensitivity analyses conducted to assess the robustness of the synthesized results. | Results, "Robustness and clinical translation" subsection; Supplementary Figure 1 |
 
 ### Reporting biases
 
@@ -194,7 +207,7 @@
 
 | Item | Checklist Item | Reported on Page / Section |
 |------|---------------|---------------------------|
-| 27 | Report which of the following are publicly available and where they can be accessed: template data collection forms; data extracted from included studies; data used for all analyses; analytic code; any other materials used in the review. | Data Sharing statement (data and code available at https://github.com/brad-kolb/claude-code-my-workflow and https://osf.io/smcen/) |
+| 27 | Report which of the following are publicly available and where they can be accessed: template data collection forms; data extracted from included studies; data used for all analyses; analytic code; any other materials used in the review. | Data Sharing statement (data and code available at https://osf.io/smcen/) |
 
 ---
 
