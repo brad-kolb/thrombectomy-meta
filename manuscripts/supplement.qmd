@@ -20,6 +20,9 @@ format:
       text: |
         \usepackage{pdflscape}
         \usepackage[table]{xcolor}
+  docx:
+    toc: true
+    number-sections: false
 execute:
   echo: false
   warning: false
@@ -29,7 +32,7 @@ knitr:
     dev: png
     dpi: 300
 bibliography: ../Bibliography_base.bib
-csl: vancouver.csl
+csl: jama.csl
 nocite: |
   @Ciccone2013_synthesis, @Broderick2013_ims3, @Kidwell2013_mrrescue,
   @Berkhemer2015_mrclean, @Campbell2015_extendia, @Goyal2015_escape,
@@ -85,7 +88,7 @@ This search returned 327 records.
 - **Design:** Randomized.
 - **Population:** Adults with acute ischemic stroke (anterior or posterior circulation).
 - **Intervention:** Mechanical thrombectomy (including stent retrievers and/or aspiration).
-- **Comparator:** Best medical management (with or without IV thrombolysis).
+- **Comparator:** Best medical management (with or without intravenous [IV] thrombolysis).
 - **Outcomes:** Functional outcomes (modified Rankin Scale).
 - **Exclusions:** Non-randomized studies.
 
@@ -95,11 +98,11 @@ This search returned 327 records.
 
 ## Study Selection and Data Handling
 
-We screened titles/abstracts and then full texts, with disagreements resolved by consensus, as documented in the PRISMA 2020 diagram below.
+We screened titles and abstracts, then full texts, with disagreements resolved by consensus, as documented in the PRISMA 2020 diagram below.
 
-For each included trial we extracted trial design, population, time window, imaging selection, intervention details (device/approach), comparator, and outcomes (including full-ordinal mRS where available).
+For each included trial, we extracted trial design, population, time window, imaging selection, intervention details (device/approach), comparator, and outcomes (including full-ordinal mRS where available).
 
-For mRS results that were presented as percentages, we obtained mRS counts by assuming the reported percentage of patients achieving the given mRS score was obtained by dividing the number of patients achieving that score in the intention-to-treat population by the total number of patients in the intention-to-treat population across all 6 mRS categories.
+For trials reporting mRS results as percentages, counts were derived by multiplying each category percentage by the total intention-to-treat sample size. This assumes each percentage was calculated from the full intention-to-treat denominator, such that counts across all six mRS categories sum to the total enrolled.
 
 ```{=latex}
 \clearpage
@@ -137,33 +140,41 @@ library(kableExtra)
 trial_meta <- read.csv("../master_supporting_docs/supporting_code/trial_metadata.csv",
                        check.names = FALSE, stringsAsFactors = FALSE)
 
-trial_meta |>
+tbl_data <- trial_meta |>
   arrange(year) |>
   select(trial_display, year, n_evt, n_control, occlusion, time_window, population,
-         primary_endpoint, key_feature, notes) |>
-  kable(
-    booktabs  = TRUE,
-    longtable = TRUE,
-    linesep   = "",
-    col.names = c("Trial", "Year", "N (EVT)", "N (Ctrl)", "Occlusion",
-                  "Time Window", "Population", "Primary Endpoint",
-                  "Key Feature", "Notes")
-  ) |>
-  kable_styling(
-    latex_options = c("repeat_header"),
-    font_size = 8
-  ) |>
-  row_spec(0, bold = TRUE, background = "#f0f0f0") |>
-  column_spec(1,  width = "2.0cm") |>
-  column_spec(2,  width = "0.8cm") |>
-  column_spec(3,  width = "0.9cm") |>
-  column_spec(4,  width = "1.1cm") |>
-  column_spec(5,  width = "1.7cm") |>
-  column_spec(6,  width = "1.5cm") |>
-  column_spec(7,  width = "3.0cm") |>
-  column_spec(8,  width = "2.4cm") |>
-  column_spec(9,  width = "2.8cm") |>
-  column_spec(10, width = "1.5cm")
+         primary_endpoint, key_feature, notes)
+
+col_names <- c("Trial", "Year", "N (EVT)", "N (Ctrl)", "Occlusion",
+               "Time Window", "Population", "Primary Endpoint",
+               "Key Feature", "Notes")
+
+if (knitr::pandoc_to("docx")) {
+  kable(tbl_data, col.names = col_names)
+} else {
+  tbl_data |>
+    kable(
+      booktabs  = TRUE,
+      longtable = TRUE,
+      linesep   = "",
+      col.names = col_names
+    ) |>
+    kable_styling(
+      latex_options = c("repeat_header"),
+      font_size = 8
+    ) |>
+    row_spec(0, bold = TRUE, background = "#f0f0f0") |>
+    column_spec(1,  width = "2.0cm") |>
+    column_spec(2,  width = "0.8cm") |>
+    column_spec(3,  width = "0.9cm") |>
+    column_spec(4,  width = "1.1cm") |>
+    column_spec(5,  width = "1.7cm") |>
+    column_spec(6,  width = "1.5cm") |>
+    column_spec(7,  width = "3.0cm") |>
+    column_spec(8,  width = "2.4cm") |>
+    column_spec(9,  width = "2.8cm") |>
+    column_spec(10, width = "1.5cm")
+}
 ```
 
 ```{=latex}
@@ -210,32 +221,36 @@ get_colors <- function(vals) {
   )
 }
 
-tbl <- rob_display |>
-  kable(
-    booktabs  = TRUE,
-    longtable = TRUE,
-    linesep   = ""
-  ) |>
-  kable_styling(
-    latex_options = c("repeat_header"),
-    font_size = 8
-  ) |>
-  row_spec(0, bold = TRUE, background = "#f0f0f0") |>
-  column_spec(1, width = "2.0cm") |>
-  column_spec(2, width = "2.2cm") |>
-  column_spec(3, width = "2.5cm") |>
-  column_spec(4, width = "2.3cm") |>
-  column_spec(5, width = "2.3cm") |>
-  column_spec(6, width = "2.0cm") |>
-  column_spec(7, width = "2.3cm") |>
-  column_spec(8, width = "1.5cm")
+if (knitr::pandoc_to("docx")) {
+  kable(rob_display)
+} else {
+  tbl <- rob_display |>
+    kable(
+      booktabs  = TRUE,
+      longtable = TRUE,
+      linesep   = ""
+    ) |>
+    kable_styling(
+      latex_options = c("repeat_header"),
+      font_size = 8
+    ) |>
+    row_spec(0, bold = TRUE, background = "#f0f0f0") |>
+    column_spec(1, width = "2.0cm") |>
+    column_spec(2, width = "2.2cm") |>
+    column_spec(3, width = "2.5cm") |>
+    column_spec(4, width = "2.3cm") |>
+    column_spec(5, width = "2.3cm") |>
+    column_spec(6, width = "2.0cm") |>
+    column_spec(7, width = "2.3cm") |>
+    column_spec(8, width = "1.5cm")
 
-for (col in domain_cols) {
-  col_idx <- which(names(rob_display) == col)
-  tbl <- column_spec(tbl, col_idx, background = get_colors(rob_display[[col]]))
+  for (col in domain_cols) {
+    col_idx <- which(names(rob_display) == col)
+    tbl <- column_spec(tbl, col_idx, background = get_colors(rob_display[[col]]))
+  }
+
+  tbl
 }
-
-tbl
 ```
 
 ```{=latex}
@@ -305,9 +320,9 @@ Chains: 4 | Iterations: 2000 (1000 warmup) | Total post-warmup draws: 4000
 print(fit_bin)
 ```
 
-All three alternative models yield a consistently negative intercept–slope correlation, confirming robustness of the main finding.
+All three alternative models yielded a consistently negative intercept–slope correlation, confirming robustness of the main finding.
 
-## Supplementary Figure 1: Robustness of $\rho$ to Model Specification
+## eFigure 1: Robustness of $\rho$ to Model Specification
 
 Posterior medians and 95% credible intervals for $\rho$ under the primary proportional-odds ordinal model and three alternative models: an unequal-variance proportional-odds model, an adjacent-category ordinal model, and a binary model (mRS 0–2 vs 3–6). Estimates remain negative across all specifications.
 
@@ -317,7 +332,7 @@ Posterior medians and 95% credible intervals for $\rho$ under the primary propor
 \clearpage
 ```
 
-## Supplementary Figure 2: Absolute Benefit Across Model Specifications
+## eFigure 2: Absolute Benefit Across Model Specifications
 
 For each model, points show each trial's posterior median control-group probability of functional independence (x-axis) and posterior median absolute benefit in functional independence due to thrombectomy (y-axis). Functional independence is defined as mRS 0–2. The dashed line indicates no absolute benefit; the smooth curve is a descriptive fit with 95% uncertainty band.
 

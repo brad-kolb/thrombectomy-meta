@@ -437,10 +437,21 @@ ggsave(
 ggsave(
   filename = here::here("artifacts", "figure_one.svg"),
   plot = figure_one,
-  width = 7.5,       
-  height = 5,         
+  width = 7.5,
+  height = 5,
   units = "in",
   dpi = 300
+)
+
+ggsave(
+  filename = here::here("artifacts", "figure_one.tiff"),
+  plot = figure_one,
+  device = "tiff",
+  width = 7.5,
+  height = 5,
+  units = "in",
+  dpi = 1200,
+  compression = "lzw"
 )
 
 # figure two -------------------------------------------------------------------
@@ -529,10 +540,21 @@ ggsave(
 ggsave(
   filename = here::here("artifacts", "figure_two.svg"),
   plot = figure_two,
-  width = 7.5,          
-  height = 5,          
+  width = 7.5,
+  height = 5,
   units = "in",
   dpi = 300
+)
+
+ggsave(
+  filename = here::here("artifacts", "figure_two.tiff"),
+  plot = figure_two,
+  device = "tiff",
+  width = 7.5,
+  height = 5,
+  units = "in",
+  dpi = 1200,
+  compression = "lzw"
 )
 
 # figure three -----------------------------------------------------------------

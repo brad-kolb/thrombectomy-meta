@@ -14,8 +14,8 @@ affiliation: |
   Department of Neurosurgery, Rush University Medical Center
   1725 W. Harrison St. Suite 855, Chicago, Illinois, 60612, USA
 date: today
-# Stroke 150-character key message (required at submission, May 2025):
-# "In 30 thrombectomy RCTs, worse baseline prognosis predicted larger benefit."
+# JAMA Neurology running title (≤40 characters):
+# "Severity and Thrombectomy Benefit" (34 chars)
 format:
   html:
     toc: true
@@ -28,9 +28,24 @@ format:
     number-sections: false
     geometry: margin=1in
     keep-tex: false
+  docx:
+    toc: false
+    number-sections: false
 bibliography: ../Bibliography_base.bib
-csl: vancouver.csl
+csl: jama.csl
 ---
+
+```{=latex}
+\clearpage
+```
+
+# Key Points
+
+**Question** What is the relationship between baseline stroke severity and mechanical thrombectomy treatment benefit across all published randomized trials?
+
+**Findings** In this meta-analysis of 30 randomized trials (n = 8,100), trial populations with worse outcomes under medical therapy alone showed larger relative treatment benefits from mechanical thrombectomy (ρ = −0.51; 95% credible interval −0.80 to −0.11); no floor effect was identified within the range of enrolled populations.
+
+**Meaning** Prognostic pessimism in large vessel occlusion stroke predicts greater, not lesser, relative benefit from mechanical thrombectomy, providing a randomized-evidence basis for the inclusive patient selection criteria endorsed by 2026 AHA/ASA guidelines.
 
 ```{=latex}
 \clearpage
@@ -38,21 +53,21 @@ csl: vancouver.csl
 
 # Abstract
 
-**Background**
+**Importance** Whether mechanical thrombectomy efficacy is bounded by floor and ceiling effects — populations "too sick" or "too well" to benefit — has shaped patient selection for decades yet has not been formally estimated across the complete randomized trial record.
 
-Whether mechanical thrombectomy efficacy is bounded by floor and ceiling effects, such that certain stroke populations can be "too sick" or "too well" to benefit, remains debated and has not been tested across the full body of randomized trial evidence. We aimed to estimate the relationship between control-group outcomes (baseline prognosis under medical therapy alone) and treatment effect magnitude across all published thrombectomy trials.
+**Objective** To estimate the relationship between trial-level baseline prognosis under medical therapy and treatment effect magnitude from mechanical thrombectomy across all published randomized trials for large vessel occlusion ischemic stroke.
 
-**Methods**
+**Data Sources** PubMed was searched through October 2025 using terms for randomized trials of mechanical thrombectomy versus best medical therapy for ischemic stroke due to large vessel occlusion.
 
-We searched PubMed through October 2025 for randomized trials of mechanical thrombectomy versus best medical therapy in large vessel occlusion stroke. We analyzed 90-day modified Rankin Scale (mRS) distributions from 30 trials (n = 8,100) using a hierarchical Bayesian ordinal regression model with correlated trial-level intercepts and slopes. This framework directly estimates the relationship between baseline prognosis under medical therapy alone and the magnitude of benefit from thrombectomy across trials.
+**Study Selection** Two reviewers independently screened records for randomized trials comparing mechanical thrombectomy with best medical therapy in adults with large vessel occlusion stroke. Of 327 identified records, 30 randomized controlled trials (n = 8,100) met inclusion criteria.
 
-**Results**
+**Data Extraction and Synthesis** Data were extracted independently following PRISMA 2020 guidance. Ninety-day modified Rankin Scale distributions were extracted by trial and treatment arm and pooled using a Bayesian hierarchical random-effects model.
 
-Thrombectomy demonstrated robust overall benefit (common log odds ratio 0.46; 95% credible interval \[CrI\] 0.30 to 0.62). Between-trial variability in control-group outcomes ($\sigma$ = 0.74; 95% CrI 0.58 to 1.00) was more than double the variability in treatment effects ($\tau$ = 0.34; 95% CrI 0.22 to 0.51). Control-group outcomes and treatment effect magnitude were negatively correlated ($\rho$ = −0.51; 95% CrI −0.80 to −0.11): trials enrolling sicker populations tended to show larger relative treatment benefits. Findings were robust across four model specifications and translated consistently to the absolute probability scale.
+**Main Outcomes and Measures** The primary outcome was the trial-level correlation ($\rho$) between control-group outcomes (baseline prognosis under medical therapy) and treatment effect magnitude on the 90-day modified Rankin Scale.
 
-**Conclusions**
+**Results** Thirty randomized trials (n = 8,100) were included. Thrombectomy demonstrated robust overall benefit (common log odds ratio $\mu$ = 0.46; 95% credible interval (CrI) 0.30 to 0.62). Between-trial heterogeneity in baseline prognosis ($\sigma$ = 0.74; 95% CrI 0.58 to 1.00) exceeded heterogeneity in treatment effects ($\tau$ = 0.34; 95% CrI 0.22 to 0.51) by a factor of 2. Trials enrolling populations with worse outcomes under medical therapy showed larger relative treatment benefits ($\rho$ = −0.51; 95% CrI −0.80 to −0.11). Findings were robust across four model specifications.
 
-Across 30 randomized thrombectomy trials, worse population-level outcomes with medical treatment alone predicted larger population-level treatment benefit from thrombectomy. We found no evidence for a floor effect within the range of enrolled populations. Evidence for a ceiling effect was observed. These findings support guidelines with inclusive patient selection for thrombectomy, particularly for populations with poor expected outcomes without intervention.
+**Conclusions and Relevance** Worse population-level prognosis under medical therapy predicted larger relative treatment benefit from thrombectomy across 30 randomized trials. These findings support inclusive selection criteria now endorsed by contemporary guidelines and challenge the paradigm that poor baseline prognosis signals diminished thrombectomy benefit.
 
 ```{=latex}
 \clearpage
@@ -62,9 +77,9 @@ Across 30 randomized thrombectomy trials, worse population-level outcomes with m
 
 Mechanical thrombectomy is effective for large vessel occlusion stroke.[@Goyal2016_hermes] Over the past decade, successive trials have extended this benefit to populations once considered poor candidates, including large-core infarcts, basilar occlusions with severe deficits, and late presentations beyond conventional time windows.[@Sarraj2023_select2; @Jovin2022_baoche; @Nogueira2018_dawn; @Costalat2024_laste] In each case, the prevailing expectation was diminished or absent benefit; in each case, randomized evidence showed the opposite. The 2026 AHA/ASA guidelines now reflect this trajectory, extending Class I recommendations to all three populations.[@Prabhakaran2026_aha; @Mokin2025_svin]
 
-These results suggest a pattern: populations with worse expected outcomes under medical therapy alone appear to derive larger, not smaller, relative benefit from thrombectomy. Yet this relationship has never been formally estimated across the full trial record. Individual patient data meta-analyses, most notably HERMES,[@Goyal2016_hermes] have established that thrombectomy benefits patients across a wide range of pre-specified categorical subgroups defined by age, stroke severity, and imaging selection criteria. Population-specific analyses have extended this evidence to extended time windows, large ischemic cores, and basilar artery occlusion.[@Jovin2022_aurora; @Atchley2024_largecore; @Adusumilli2023_basilar] These analyses test whether discrete patient categories benefit differentially from thrombectomy. They do not estimate the continuous relationship between trial-level baseline prognosis and treatment effect magnitude across the full body of randomized evidence, which is the question this study addresses.
+These results suggest a pattern: populations with worse expected outcomes under medical therapy alone appear to derive larger, not smaller, relative benefit from thrombectomy. Yet this relationship has never been formally estimated across the full trial record. Individual patient data meta-analyses, most notably HERMES,[@Goyal2016_hermes] have established that thrombectomy benefits patients across a wide range of prespecified categorical subgroups defined by age, stroke severity, and imaging selection criteria. Population-specific analyses have extended this evidence to extended time windows, large ischemic cores, and basilar artery occlusion.[@Jovin2022_aurora; @Atchley2024_largecore; @Adusumilli2023_basilar] These analyses test whether discrete patient categories benefit differentially from thrombectomy. They do not estimate the continuous relationship between trial-level baseline prognosis and treatment effect magnitude across the full body of randomized evidence, which is the question this study addresses.
 
-We estimated this relationship by fitting a hierarchical Bayesian ordinal regression model to full 90-day mRS distributions from all 30 published randomized thrombectomy trials (n = 8,100). This framework directly estimates the correlation ($\rho$) between trial-level baseline prognosis and thrombectomy benefit as a single parameter, quantifying the strength of the prognosis-benefit gradient across the complete randomized evidence base. Between-trial variation in baseline prognosis substantially exceeded variation in treatment effects, and worse baseline prognosis predicted larger relative benefit.
+We estimated this relationship by fitting a hierarchical Bayesian ordinal regression model to full 90-day modified Rankin Scale (mRS) distributions from all 30 published randomized thrombectomy trials (n = 8,100). This framework directly estimates the correlation ($\rho$) between trial-level baseline prognosis and thrombectomy benefit as a single parameter, quantifying the strength of the prognosis-benefit gradient across the complete randomized evidence base. Between-trial variation in baseline prognosis substantially exceeded variation in treatment effects, and worse baseline prognosis predicted larger relative benefit.
 
 ```{=latex}
 \clearpage
@@ -80,9 +95,7 @@ We searched PubMed through October 2025 for randomized trials of mechanical thro
 
 We expanded published modified Rankin Scale (mRS) distributions into category counts by trial and treatment arm (control versus intervention). We fit a Bayesian hierarchical ordinal regression model to these data using frequency weights.[@Burkner2019_ordinal] At the patient level, the model uses a proportional-odds cumulative ordinal specification with global cut-points for the mRS categories and a treatment indicator for thrombectomy. At the trial level, the model includes varying ("random") intercepts to capture trial-specific baseline prognosis under medical therapy and varying ("random") slopes to capture trial-specific treatment effects on the log-odds scale. The varying slopes and intercepts are modeled as correlated parameters to capture any systematic relationship between trial-level control-group outcomes and treatment effects. In practice, the intercept for a given trial is estimated from the full mRS distribution of its control group: trials enrolling populations likely to do well under medical management alone (for example, patients with small cores and early presentations) yield higher intercepts, while trials enrolling populations expected to do poorly yield lower intercepts.
 
-The model estimates four key parameters. The pooled treatment effect $\mu$ summarizes the average treatment effect across all trials, as in conventional random-effects meta-analysis.[@Riley2011-zh] In this model, $\mu$ is presented as a common odds ratio on the log scale. The common odds ratio is the standard outcome estimand in most thrombectomy trials, and is typically interpreted as representing a uniform shift in mRS scores toward more or less favorable outcomes.[@Saver2009-ao] On the log scale, values greater than zero represent a "positive" shift toward lower mRS values, whereas values less than zero represent a "negative" shift toward higher mRS values. The between-trial standard deviation of the slopes $\tau$ summarizes heterogeneity in treatment effects, as in conventional random-effects meta-analysis.[@Higgins2002-fc] The between-trial standard deviation of the intercepts $\sigma$ summarizes heterogeneity in baseline prognosis across control groups. The primary estimand was the correlation $\rho$ between trial-level intercepts and slopes, which quantifies how baseline prognosis in the control group relates to the magnitude of the estimated thrombectomy effect. Estimates are presented as the posterior median and 95% credible interval (95% CrI).
-
-Concretely, this approach asks whether trials enrolling populations with worse expected outcomes under medical therapy also tended to show larger thrombectomy benefits, estimating the strength of that relationship while accounting for all sources of between-trial variability.
+The model estimates four key parameters: the pooled treatment effect $\mu$ (common log odds ratio, with values above zero indicating benefit from thrombectomy)[@Riley2011-zh; @Saver2009-ao]; the between-trial standard deviation of slopes $\tau$ (heterogeneity in treatment effects)[@Higgins2002-fc]; the between-trial standard deviation of intercepts $\sigma$ (heterogeneity in baseline prognosis across control groups); and the correlation $\rho$ between trial-level intercepts and slopes, which is the primary estimand and quantifies whether trials enrolling populations with worse expected outcomes under medical therapy tended to show larger or smaller thrombectomy benefits. Estimates are presented as posterior median and 95% credible interval (CrI).
 
 ## Implementation and Reproducibility
 
@@ -94,22 +107,22 @@ Models were fit in Stan via the brms package using weakly informative, regulariz
 
 # Results
 
-The PubMed search identified 327 records. After screening and full-text review, 30 randomized controlled trials (n = 8,100) met inclusion criteria (detailed references in the supplementary material). Overall, there was a low risk of bias for the included studies across most domains (Table 2 in the supplementary material).
+The PubMed search identified 327 records. After screening and full-text review, 30 randomized controlled trials (n = 8,100) met inclusion criteria (detailed references in the supplementary material). Overall, there was low risk of bias for the included studies across most domains (eTable 2).
 
-### Pooled treatment effect
+## Pooled treatment effect
 Across all 8,100 patients, thrombectomy demonstrated a robust beneficial effect on the mRS (Figure 1), with a pooled treatment effect of $\mu$ = 0.46 (95% CrI 0.30 to 0.62). Clinically, this corresponds to a 58% increase in the odds of achieving any given mRS threshold or better with thrombectomy, compared with best medical therapy alone.
 
-### Between-trial heterogeneity in treatment effects
+## Between-trial heterogeneity in treatment effects
 The between-trial standard deviation of treatment effects was $\tau$ = 0.34 (95% CrI 0.22 to 0.51), reflected in the posterior predicted treatment effect for a new trial (0.46; 95% CrI −0.26 to 1.17). The wide credible interval for this prediction indicates that, given current evidence, a new trial could plausibly observe effects ranging from slight harm to very large benefit.
 
-### Between-trial heterogeneity in control-group outcomes
+## Between-trial heterogeneity in control-group outcomes
 The between-trial standard deviation of control-group outcomes was $\sigma$ = 0.74 (95% CrI 0.58 to 1.00) — more than double the heterogeneity in treatment effects. Clinically, this indicates that between-trial differences in who was enrolled ($\sigma$) exceeded between-trial differences in thrombectomy treatment effect ($\tau$) by a factor of two (both on the log-odds scale).
 
-### Trial-level relationship between control-group outcomes and treatment effect magnitude
+## Trial-level relationship between control-group outcomes and treatment effect magnitude
 Treatment effect heterogeneity was systematically related to control-group outcome heterogeneity: $\rho$ = −0.51 (95% CrI −0.80 to −0.11) (Figure 2). In plain terms, trials in which control-group patients fared worse tended to report larger relative benefits of thrombectomy, whereas trials with better control-group outcomes tended to report smaller relative benefits from thrombectomy.
 
-### Robustness and clinical translation
-The inverse relationship between control-group outcomes and treatment effect magnitude was robust to major modeling choices: estimates of $\rho$ remained consistently negative across all four model specifications (Supplementary Figure 1). Translated to the absolute probability scale, estimated treatment benefit in functional independence (mRS 0–2) ranged from approximately +28% to −3% across trials, with the smallest absolute gains in populations with the most favorable natural history, whereas large gains were seen in populations with both poor and moderate natural histories, consistent with a ceiling effect and the absence of a floor effect (Supplementary Figure 2).
+## Robustness and clinical translation
+The inverse relationship between control-group outcomes and treatment effect magnitude was robust to major modeling choices: estimates of $\rho$ remained consistently negative across all four model specifications (eFigure 1). Translated to the absolute probability scale, estimated treatment benefit in functional independence (mRS 0–2) ranged from approximately +28% to −3% across trials, with the smallest absolute gains in populations with the most favorable natural history, whereas large gains were seen in populations with both poor and moderate natural histories (eFigure 2).
 
 ```{=latex}
 \clearpage
@@ -119,29 +132,29 @@ The inverse relationship between control-group outcomes and treatment effect mag
 
 Our analysis identifies a systematic trial-level relationship between prognosis and thrombectomy efficacy: the worse the expected outcome under medical management, the larger the relative benefit of thrombectomy. This inverse relationship has been observed in observational cohorts,[@Rudilosso2021_registry] but our results are, to our knowledge, the first to identify the pattern in randomized trial data. This finding has three important implications.
 
-**No evidence of floor effects in existing trials.** We found no evidence from randomized trials of patient populations that are "too sick to benefit" from mechanical thrombectomy. Trials enrolling populations with the poorest natural history, whether due to large ischemic cores, basilar artery occlusion, or late presentation, tended to demonstrate some of the largest relative treatment effects. While absolute outcomes in these groups remain poor compared with those of highly selected "ideal" candidate populations, the relative impact of thrombectomy is equal to or greater than that seen in more favorable trial populations. These findings align with the Class I recommendations for expanded thrombectomy indications now endorsed in contemporary guidelines.[@Prabhakaran2026_aha; @Mokin2025_svin]
+We found no evidence from randomized trials of a floor effect for mechanical thrombectomy: patient populations that are "too sick to benefit" from mechanical thrombectomy. Trials enrolling populations with the poorest natural history, whether due to large ischemic cores, basilar artery occlusion, or late presentation, tended to demonstrate some of the largest relative treatment effects. While absolute outcomes in these groups remain poor compared with those of highly selected "ideal" candidate populations, the relative impact of thrombectomy is equal to or greater than that seen in more favorable trial populations. These findings align with the Class I recommendations for expanded thrombectomy indications now endorsed in contemporary guidelines.[@Prabhakaran2026_aha; @Mokin2025_svin]
 
-**Evidence of ceiling effects in existing trials.** We found evidence for a ceiling effect across the range of trial-enrolled populations. Two trials included in this analysis — ESCAPE-MEVO and DISTAL — which enrolled patients with medium vessel occlusions and low-severity presentations, had the most favorable baseline prognoses, corresponding to the highest intercepts in Figure 2, and showed the most modest treatment effects.[@Goyal2025_mvo; @Psychogios2025_distal] When the probability of a good outcome under medical therapy alone is already high, the potential for relative improvement is inherently limited. This ceiling effect mechanism is consistent with evidence from the thrombolytics literature[@Raty2024_ivtba; @Wang2025_minors] and supports recent guideline recommendations against thrombectomy in basilar artery occlusion with mild neurological deficits.[@Strbian2024_eso]
+We also found evidence for a ceiling effect across the range of trial-enrolled populations. Two trials included in this analysis (ESCAPE-MEVO and DISTAL), which enrolled patients with medium vessel occlusions and low-severity presentations, had the most favorable baseline prognoses, corresponding to the highest intercepts in Figure 2, and showed the most modest treatment effects.[@Goyal2025_mvo; @Psychogios2025_distal] When the probability of a good outcome under medical therapy alone is already high, the potential for relative improvement is inherently limited. This ceiling effect mechanism is consistent with evidence from the thrombolytics literature[@Raty2024_ivtba; @Wang2025_minors] and supports recent guideline recommendations against thrombectomy in basilar artery occlusion with mild neurological deficits and in patients with occlusion of non-dominant or co-dominant distal anterior, middle, or posterior cerebral artery occlusions.[@Strbian2024_eso; @Prabhakaran2026_aha]
 
-**Clinical implications.** These findings support a shift toward inclusive selection criteria for mechanical thrombectomy, where populations with poor baseline prognosis indicate a greater relative need for intervention rather than futility.[@Chen2023_largecore] In trials enrolling populations with large ischemic cores, posterior circulation involvement, or late presentations, the therapeutic goal often shifts from achieving complete functional recovery to preventing severe disability or death.[@Chen2023_largecore] Our analysis shows that thrombectomy is highly effective at reducing both severe disability and death in such populations, as illustrated on the absolute probability scale (Supplementary Figure 2). The 2026 AHA/ASA guidelines have already moved in this direction, extending Class I thrombectomy recommendations to large-core strokes, basilar artery occlusions with severe neurological deficits, and extended time windows.[@Prabhakaran2026_aha; @Mokin2025_svin] Our randomized trial-level data offer a mechanistic account of why this expansion is appropriate: across the complete randomized evidence base for thrombectomy to date, the sicker the enrolled population, the larger the relative benefit of thrombectomy. These findings are most directly applicable at the level of clinical guidelines and population-based selection criteria; whether an individual patient's prognosis predicts differential benefit from thrombectomy cannot be determined from trial-level data alone and would require individual patient data meta-analysis.
+These findings support a shift toward inclusive selection criteria for mechanical thrombectomy, where populations with poor baseline prognosis indicate a greater relative need for intervention rather than futility.[@Chen2023_largecore] In trials enrolling populations with large ischemic cores, posterior circulation involvement, or late presentations, the therapeutic goal often shifts from achieving complete functional recovery to preventing severe disability or death.[@Chen2023_largecore] Our analysis shows that thrombectomy is highly effective at reducing both severe disability and death in such populations, as illustrated on the absolute probability scale (eFigure 2). The 2026 AHA/ASA guidelines have already moved in this direction, extending Class I thrombectomy recommendations to large-core strokes, basilar artery occlusions with severe neurological deficits, and extended time windows.[@Prabhakaran2026_aha; @Mokin2025_svin] Our randomized trial-level data offer a mechanistic account of why this expansion is appropriate: across the complete randomized evidence base for thrombectomy to date, the sicker the enrolled population, the larger the relative benefit of thrombectomy. These findings are most directly applicable at the level of clinical guidelines and population-based selection criteria; whether an individual patient's prognosis predicts differential benefit from thrombectomy cannot be determined from trial-level data alone and would require individual patient data meta-analysis.
 
 ## Limitations
 
 Five limitations of our analysis merit consideration.
 
-First and perhaps most importantly, the negative correlation between treatment effect magnitude and baseline prognosis is estimated at the trial level and does not by itself identify effect modification at the individual-patient level. Inferring individual-level relationships from this pattern would risk committing the ecological fallacy.[@Robinson1950_ecological]
+First, the negative correlation between treatment effect magnitude and baseline prognosis is estimated at the trial level and does not by itself identify effect modification at the individual-patient level. Inferring individual-level relationships from this pattern would risk committing the ecological fallacy.[@Robinson1950_ecological]
 
-Second, the proportional odds assumption is a simplifying model for ordinal data that may not hold exactly in reality.[@Long2025_proportionalodds] However, the trial-level correlation between baseline prognosis and treatment effect does not depend on this assumption (Supplementary Figure 1).
+Second, the proportional odds assumption is a simplifying model for ordinal data that may not hold exactly in reality.[@Long2025_proportionalodds] However, the trial-level correlation between baseline prognosis and treatment effect does not depend on this assumption (eFigure 1).
 
 Third, our main analysis focused on relative treatment effects. While populations with poor baseline prognosis derived the largest relative benefit, their absolute rates of functional independence remain lower than those of patients with favorable baseline prognosis. A large relative benefit in a high-risk group should therefore be understood as thrombectomy serving as a critical salvage intervention rather than a guarantee of favorable clinical outcomes in the absolute sense.
 
 Fourth, because we relied on published trial data rather than individual-level datasets, we could not adjust for patient-level covariates within trials. This is a limitation inherent to aggregate-data meta-analysis.
 
-Fifth and finally, device technology, workflow, and adjunctive medical therapy evolved over the course of the included trials alongside changes in patient selection. The observed correlation likely reflects a mixture of case-mix and era/technology effects rather than differences in baseline prognosis alone.
+Fifth, device technology, workflow, and adjunctive medical therapy evolved over the course of the included trials alongside changes in patient selection. The observed correlation likely reflects a mixture of case-mix and era/technology effects rather than differences in baseline prognosis alone.
 
 ## Conclusion
 
-In this hierarchical Bayesian ordinal meta-analysis of 30 randomized trials (n = 8,100), the magnitude of mechanical thrombectomy treatment effect varied inversely with control-group outcomes under best medical therapy: at the trial level, the sicker the enrolled population, the larger the relative benefit of thrombectomy. While we found evidence that thrombectomy has attenuated benefits in populations with relatively good prognoses with best medical therapy alone (ceiling effect), we found no evidence that poor prognosis with best medical therapy alone limits the benefit of thrombectomy (no floor effect) within the range of enrolled populations. These findings provide a randomized-evidence basis for the more inclusive patient selection criteria now endorsed by contemporary guidelines [@Prabhakaran2026_aha; @Mokin2025_svin] and challenge historical paradigms that restricted thrombectomy to "ideal" candidates.
+In this hierarchical Bayesian ordinal meta-analysis of 30 randomized trials (n = 8,100), the magnitude of mechanical thrombectomy treatment effect varied inversely with control-group outcomes under best medical therapy: at the trial level, the sicker the enrolled population, the larger the relative benefit of thrombectomy. While we found evidence that thrombectomy has attenuated benefits in populations with relatively good prognoses with best medical therapy alone (ceiling effect), we found no evidence that poor prognosis with best medical therapy alone limits the benefit of thrombectomy (no floor effect) within the range of enrolled populations. These findings provide a randomized-evidence basis for the more inclusive patient selection criteria now endorsed by contemporary guidelines[@Prabhakaran2026_aha; @Mokin2025_svin] and challenge historical paradigms that restricted thrombectomy to "ideal" candidates.
 
 ```{=latex}
 \clearpage
