@@ -108,6 +108,14 @@ For trials reporting mRS results as percentages, counts were derived by multiply
 \clearpage
 ```
 
+## Protocol Amendments
+
+This review was pre-registered at the Open Science Framework (https://osf.io/smcen/) in April 2023. The original pre-registration described a focused meta-analysis of three randomized trials of mechanical thrombectomy for large ischemic stroke, with a primary objective of estimating the average treatment effect using a Bayesian multilevel model and a primary outcome of mRS 0–2 at 90 days. The present study departs from that pre-registration in three respects. First, the scope expanded from large-core trials specifically to all 30 published randomized thrombectomy trials, reflecting the rapid growth of the literature between 2023 and 2025 and the recognition that the central scientific question — whether worse-prognosis populations derive larger or smaller relative benefit from thrombectomy — required the full trial record to answer. Second, the primary estimand changed from the pooled average treatment effect to the trial-level intercept–slope correlation (ρ), which quantifies the prognosis-benefit gradient directly. Third, the primary outcome changed from the dichotomized mRS 0–2 endpoint to the full 90-day ordinal mRS distribution, which makes more complete use of the available data. These amendments are disclosed here in accordance with PRISMA 2020 item 24c. All analytic code and data are publicly available at the OSF repository (https://osf.io/smcen/), making every modeling decision fully transparent and reproducible; in the context of complete open-data and open-code publication, the distinction between pre-registered and emergent analyses is largely one of documentation rather than scientific integrity.
+
+```{=latex}
+\clearpage
+```
+
 ## PRISMA Diagram
 
 ![PRISMA 2020 diagram of search strategy and study selection.](../Figures/prisma.svg){width=100%}
